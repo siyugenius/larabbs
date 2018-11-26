@@ -21,8 +21,12 @@
 
     <div class="container">
 
-        @yield('content')
+            @include('layouts._message')
+            @yield('content')
 
+        </div>
+
+        @include('layouts._footer')
     </div>
 
     @include('layouts._footer')
