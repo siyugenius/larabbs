@@ -22,8 +22,8 @@ class UserPolicy
     
     /**
      * 用户更新时的权限验证
-     * currentUser 当前登陆用户实例 
-     * user 要进行授权的用户实例
+     * @var string currentUser 当前登陆用户实例 
+     * @var string user 要进行授权的用户实例
      * @return 
      */
     public function update(User $currentUser, User $user)
