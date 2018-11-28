@@ -9,6 +9,7 @@
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
     <title><?php echo $__env->yieldContent('title', 'LaraBBS'); ?></title>
+    <meta name="description" content="<?php echo $__env->yieldContent('description', 'LaraBBS'); ?>" />
 
     <!-- Styles -->
     <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
