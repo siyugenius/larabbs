@@ -33,9 +33,9 @@
 
                     <div class="form-group">
                         <select class="form-control" name="category_id" required>
-                            <option value="" hidden disabled selected>请选择分类</option>
+                            <option value="" hidden disabled <?php echo e($topic->id ? '' : 'selected'); ?>>请选择分类</option>
                             <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <option value="<?php echo e($value->id); ?>"><?php echo e($value->name); ?></option>
+                                <option value="<?php echo e($value->id); ?>" <?php echo e($topic->category_id == $value->id ? 'selected' : ''); ?>><?php echo e($value->name); ?></option>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
@@ -54,7 +54,7 @@
 </div>
 
 <?php $__env->stopSection(); ?>
-<!-- <?php $__env->startSection('styles'); ?>
+<?php $__env->startSection('styles'); ?>
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/simditor.css')); ?>">
 <?php $__env->stopSection(); ?>
 
@@ -68,17 +68,9 @@
     $(document).ready(function(){
         var editor = new Simditor({
             textarea: $('#editor'),
-            upload: {
-                url: '<?php echo e(route('topics.upload_image')); ?>',
-                params: { _token: '<?php echo e(csrf_token()); ?>' },
-                fileKey: 'upload_file',
-                connectionCount: 3,
-                leaveConfirm: '文件上传中，关闭此页面将取消上传。'
-            },
-            pasteImage: true,
         });
     });
     </script>
 
-<?php $__env->stopSection(); ?> -->
+<?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
