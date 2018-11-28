@@ -54,7 +54,7 @@
 </div>
 
 <?php $__env->stopSection(); ?>
-<?php $__env->startSection('styles'); ?>
+<!-- <?php $__env->startSection('styles'); ?>
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/simditor.css')); ?>">
 <?php $__env->stopSection(); ?>
 
@@ -80,5 +80,5 @@
     });
     </script>
 
-<?php $__env->stopSection(); ?>
+<?php $__env->stopSection(); ?> -->
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
