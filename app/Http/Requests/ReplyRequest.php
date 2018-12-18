@@ -6,30 +6,32 @@ class ReplyRequest extends Request
 {
     public function rules()
     {
-        switch($this->method())
-        {
+        // switch($this->method())
+        // {
             // CREATE
-            case 'POST':
-            {
+            // case 'POST':
+            // {
+            //     return [
+            //         // CREATE ROLES
+            //     ];
+            // }
+            // // UPDATE
+            // case 'PUT':
+            // case 'PATCH':
+            // {
+            //     return [
+            //         // UPDATE ROLES
+            //     ];
+            // }
+            // case 'GET':
+            // case 'DELETE':
+            // default:
+            // {
                 return [
-                    // CREATE ROLES
+                    'content' => 'required|min:2',
                 ];
-            }
-            // UPDATE
-            case 'PUT':
-            case 'PATCH':
-            {
-                return [
-                    // UPDATE ROLES
-                ];
-            }
-            case 'GET':
-            case 'DELETE':
-            default:
-            {
-                return [];
-            };
-        }
+            // };
+        // }
     }
 
     public function messages()
