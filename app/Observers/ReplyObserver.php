@@ -19,6 +19,13 @@ class ReplyObserver
         $topic->user->notify(new TopicReplied($reply));
     }
 
+
+    // 监控回复删除后事件
+    public function deleted(Reply $reply)
+    {
+        $reply->topic->decrement('reply_count',1);
+    }
+
     public function creating(Reply $reply)
     {
         $reply->content = clean($reply->content, 'user_topic_body');
