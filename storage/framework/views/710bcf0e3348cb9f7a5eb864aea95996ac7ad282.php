@@ -28,7 +28,7 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
-                <!-- Authentication Links -->
+                  <!-- Authentication Links -->
                 <?php if(auth()->guard()->guest()): ?>
                     <li><a href="<?php echo e(route('login')); ?>">登录</a></li>
                     <li><a href="<?php echo e(route('register')); ?>">注册</a></li>
@@ -36,6 +36,15 @@
                     <li>
                         <a href="<?php echo e(route('topics.create')); ?>">
                             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="<?php echo e(route('notifications.index')); ?>" class="notifications-badge" style="margin-top: -2px;">
+                            <span class="badge badge-<?php echo e(Auth::user()->notification_count > 0 ? 'hint' : 'fade'); ?> " title="消息提醒">
+                                <?php echo e(Auth::user()->notification_count); ?>
+
+                            </span>
                         </a>
                     </li>
                     <li class="dropdown">

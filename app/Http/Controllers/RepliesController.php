@@ -23,7 +23,7 @@ class RepliesController extends Controller
 		$reply->topic_id = $request->topic_id;
 		$reply->save();
 
-		return redirect()->to($reply->topic->link())->with('message', 'Created successfully.');
+		return redirect()->to($reply->topic->link())->with('success', 'Created successfully.');
 	}
 
 
