@@ -3,20 +3,16 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
 class SeedRolesAndPermissionsData extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        // 清楚缓存
+        // 清除缓存
         app()['cache']->forget('spatie.permission.cache');
 
         // 先创建权限
@@ -35,11 +31,6 @@ class SeedRolesAndPermissionsData extends Migration
         $maintainer->givePermissionTo('manage_contents');
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         // 清除缓存
